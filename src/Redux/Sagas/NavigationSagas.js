@@ -1,5 +1,5 @@
 import {takeLatest} from 'redux-saga/effects';
-import Navigation from '../../Service/Navigation';
+import Navigation from '../../Services/Navigation';
 
 const navigateToSecond = function*(action) {
   try {
