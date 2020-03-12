@@ -3,12 +3,13 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeScreen from './Home';
 import SecondScreen from './Second';
+import Navigation from '../Service/Navigation';
 
 const Stack = createStackNavigator();
 
 function Screens() {
   return (
-    <NavigationContainer>
+    <NavigationContainer ref={n => Navigation.setNavigation(n)}>
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
