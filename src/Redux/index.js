@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import rootReducer from './Reducers';
 import createSagaMiddleware from 'redux-saga';
 import sagas from './Sagas';
+import strings from '../Localization';
 
 const persistConfig = {
   key: 'root',
@@ -28,6 +29,8 @@ export const persist = callback =>
     const storeUnsubscribe = store.subscribe(() => {
       const state = store.getState();
       if (state.app && state.app.loaded) {
+        //TODO: store langauge in redux and load it if set
+        strings.setLanguage(strings.getInterfaceLanguage() || 'en');
         storeUnsubscribe();
         callback();
       }
